@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import suporte.Web;
+import static org.junit.Assert.*;
 
 public class InformacoesUsuarioPageObjectTests {
 
@@ -23,12 +24,15 @@ public class InformacoesUsuarioPageObjectTests {
     //Chama os métodos das classes criadas de cada Page, passando os parâmetros.
     @Test
     public void testAdcionarUmaInformacaoAdicionalDoUsuario(){
-        new LoginPage(navegador)
+        String textoToast = new LoginPage(navegador)
                 .ClicarSignIn()
                 .FazerLogin("Julio0001","123456")
                 .ClicarMe()
                 .clicarAbaMoreDataAboutYou()
-                .clicarBotaoAddMoreDataAboutYou();
+                .clicarBotaoAddMoreDataAboutYou()
+                .adicionarContato("Phone", "+5511999998888")
+                .capturaTextoToast();
+        assertEquals("Your contact has been added!", textoToast);
     }
     //Ações depois de executar testes, pós-requisitos(After)
     //Fechamento do navegagor.
