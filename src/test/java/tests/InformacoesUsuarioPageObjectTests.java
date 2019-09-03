@@ -17,7 +17,7 @@ public class InformacoesUsuarioPageObjectTests {
     //Cria uma instância navegador.
     @Before
     public void setUp(){
-        navegador = Web.createChrome();
+            navegador = Web.createChrome();
     }
 
     // Execução dos testes
@@ -38,6 +38,6 @@ public class InformacoesUsuarioPageObjectTests {
     //Fechamento do navegagor.
     @After
     public void tearDown(){
-        //navegador.quit();
+        navegador.quit();
     }
 }
